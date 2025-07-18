@@ -240,10 +240,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'Instagram',
     link: 'https://www.instagram.com/rp07_official',
   },
-  {
-    label: 'YouTube',
-    link: 'https://youtube.com/@parishithragumar?si=5L8vds5yCAHMd9bG',
-  },
+
 
 ]
 
