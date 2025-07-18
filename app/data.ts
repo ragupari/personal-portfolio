@@ -1,17 +1,31 @@
 type Project = {
   name: string
   description: string
+  view: string
+  gitlink: string
+  image: string
+  id: string
+}
+type VolunteerExperience = {
+  institution: string
+  position: string
+  start: string
+  end: string
+  id: string
+}
+type Certification = {
+  title: string
+  issuer: string
+  date: string
   link: string
-  video: string
   id: string
 }
 
-type WorkExperience = {
-  company: string
-  title: string
+type EducationExperience = {
+  institution: string
+  degree: string
   start: string
   end: string
-  link: string
   id: string
 }
 
@@ -28,49 +42,155 @@ type SocialLink = {
 }
 
 export const PROJECTS: Project[] = [
-  {
-    name: 'Motion Primitives Pro',
+    {
+    name: 'AgroBridge',
     description:
-      'Advanced components and templates to craft beautiful websites.',
-    link: 'https://pro.motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
+      'Connecting farmers directly to buyers for a fairer, fresher harvest.',
+    view: '',
+    gitlink: 'https://github.com/ragupari/AgroBridge-FlutterApp.git',
+    image:
+      '/projects/7.png',
+    id: 'project0',
+  },
+  {
+    name: 'Dr. Physio',
+    description:
+      'AI-powered physiotherapy assistant with RAG and Visual feedback.',
+    view: '',
+    gitlink: 'https://github.com/dr-physio',
+    image:
+      '/projects/5.png',
     id: 'project1',
   },
   {
-    name: 'Motion Primitives',
-    description: 'UI kit to make beautiful, animated interfaces.',
-    link: 'https://motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    name: 'Supply Chain Management System',
+    description: 'SCM system for efficient logistics and inventory management.',
+    gitlink: 'https://github.com/ragupari/SCM-project.git',
+    view: '',
+    image:
+      '/projects/2.png',
     id: 'project2',
+  },
+  {
+    name: 'School Deduction Points Calculator',
+    description:
+      'Scores given to a student based on their home location and no of other schools inbetween upon registering to a school.',
+    view: 'https://youtu.be/TK8zg94yjFQ?si=hduZNPY8J0XZhX3x',
+    gitlink: 'https://github.com/ragupari/nim-website-template.git',
+    image:
+      '/projects/1.png',
+    id: 'project3',
+  },
+  {
+    name: 'SpritX 11',
+    description:
+      'A fantasy cricket game platform where users can create their dream cricket teams by selecting players.',
+    view: '',
+    gitlink: 'https://github.com/ragupari/SpritX_Nexus_02.git',
+    image:
+      '/projects/6.png',
+    id: 'project4',
+  },
+    {
+    name: 'Nano Processor Design',
+    description:
+      'Design and simulate a 4-bit nanoprocessor capable of executing basic arithmetic and control instructions using VHDL.',
+    view: '',
+    gitlink: 'https://github.com/ragupari/nano-processor-second-sem-project.git',
+    image:
+      '/projects/4.png',
+    id: 'project5',
+  },
+  {
+    name: 'ELEC',
+    description:
+      'A web application for election management with features like candidate registration, voting, canvassing and result tallying.',
+    view: 'https://www.youtube.com/watch?v=WpQ2EArViNY',
+    gitlink: 'https://github.com/ragupari/ELEC-YGC-Juniors2018-web-application.git',
+    image:
+      '/projects/3.png',
+    id: 'project6',
+  },
+
+]
+
+export const EDUCATION_EXPERIENCE: EducationExperience[] = [
+  {
+    institution: 'University of Moratuwa',
+    degree: 'Computer Science and Engineering (BSc. Eng.)',
+    start: '2023',
+    end: 'Present',
+    id: 'edu1',
+  },
+  {
+    institution: 'Jaffna Hindu College, Jaffna',
+    degree: 'GCE Advanced Level, GCE Ordinary Level [Secondary Education]',
+    start: '2013',
+    end: '2021',
+    id: 'edu2',
   },
 ]
 
-export const WORK_EXPERIENCE: WorkExperience[] = [
-  {
-    company: 'Reglazed Studio',
-    title: 'CEO',
-    start: '2024',
-    end: 'Present',
-    link: 'https://ibelick.com',
-    id: 'work1',
+export const VOLUNTEER_EXPERIENCE: VolunteerExperience[] = [
+    {
+    institution: 'Mora Exams',
+    position: 'MORA EXAMS 2024 - President',
+    start: 'Jun 2024',
+    end: 'Dec 2024',
+    id: 'vol0',
   },
   {
-    company: 'Freelance',
-    title: 'Design Engineer',
-    start: '2022',
-    end: '2024',
-    link: 'https://ibelick.com',
-    id: 'work2',
+    institution: 'AIESEC in University of Moratuwa',
+    position: 'IDEALIZE 2024 - Marketing Team Vice President',
+    start: 'Feb 2024',
+    end: 'Nov 2024',
+    id: 'vol1',
   },
   {
-    company: 'Freelance',
-    title: 'Front-end Developer',
-    start: '2017',
-    end: 'Present',
-    link: 'https://ibelick.com',
-    id: 'work3',
+    institution: 'AIESEC in University of Moratuwa',
+    position: 'Marcom Team Manager of oGT (Summer Term 24/25)',
+    start: 'Feb 2024',
+    end: 'Jul 2024',
+    id: 'vol2',
+  },
+  {
+    institution: 'Jaffna Hindu College, Jaffna',
+    position: 'Prefect',
+    start: 'Feb 2020',
+    end: 'Feb 2022',
+    id: 'vol3',
+  },
+
+]
+
+export const CERTIFICATIONS: Certification[] = [
+  {
+    title: 'Introduction to Cybersecurity',
+    issuer: 'Cisco',
+    date: 'Jul 2025',
+    link: 'https://www.credly.com/badges/09efc9c3-a935-4c47-8f95-b43453f57ac2/linked_in_profile',
+    id: 'cert1',
+  },
+  {
+    title: 'The Complete Full-Stack Web Development Bootcamp',
+    issuer: 'Udemy',
+    date: 'Jul 2024',
+    link: 'https://ude.my/UC-d32cc911-c48b-4d89-93e2-04da6aa7b35c',
+    id: 'cert2',
+  },
+  {
+    title: 'Intermediate Machine Learning',
+    issuer: 'Kaggle',
+    date: 'Mar 2025',
+    link: 'https://www.kaggle.com/learn/certification/parishithragumar/intro-to-machine-learning',
+    id: 'cert3',
+  },
+  {
+    title: 'Building Generative AI Applications with Gradio',
+    issuer: 'Deeplearning.ai',
+    date: 'Aug 2024',
+    link: 'https://learn.deeplearning.ai/accomplishments/7651ea46-a041-456c-89c9-22329c100d2d?usp=sharing',
+    id: 'cert4',
   },
 ]
 
@@ -106,20 +226,20 @@ export const BLOG_POSTS: BlogPost[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'Github',
-    link: 'https://github.com/ibelick',
+    link: 'https://github.com/ragupari',
   },
   {
     label: 'Twitter',
-    link: 'https://twitter.com/ibelick',
+    link: 'https://twitter.com/RP7_official',
   },
   {
     label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/ibelick',
+    link: 'https://www.linkedin.com/in/rp07official',
   },
   {
     label: 'Instagram',
-    link: 'https://www.instagram.com/ibelick',
+    link: 'https://www.instagram.com/rp07_official',
   },
 ]
 
-export const EMAIL = 'your@email.com'
+export const EMAIL = 'pariunimora@gmail.com'

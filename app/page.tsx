@@ -3,6 +3,12 @@ import { motion } from 'motion/react'
 import { XIcon } from 'lucide-react'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Magnetic } from '@/components/ui/magnetic'
+import { FaGithub } from 'react-icons/fa'
+import { FiExternalLink, FiChevronDown} from 'react-icons/fi'
+import { useState } from 'react';
+import Image from 'next/image';
+
+
 import {
   MorphingDialog,
   MorphingDialogTrigger,
@@ -14,10 +20,12 @@ import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
-  WORK_EXPERIENCE,
+  EDUCATION_EXPERIENCE,
   BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
+  VOLUNTEER_EXPERIENCE,
+  CERTIFICATIONS,
 } from './data'
 
 const VARIANTS_CONTAINER = {
@@ -124,6 +132,9 @@ function MagneticSocialLink({
 }
 
 export default function Personal() {
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? PROJECTS : PROJECTS.slice(0, 4);
+
   return (
     <motion.main
       className="space-y-24"
@@ -137,27 +148,32 @@ export default function Personal() {
       >
         <div className="flex-1">
           <p className="text-zinc-600 dark:text-zinc-400">
-            Focused on creating intuitive and performant web experiences.
-            Bridging the gap between design and development.
+            "Just a boy in his 20s, fueled by caffeine, trying to figure out his life, his code, and why everything happens for a reason — and that reason is often a missing semicolon. Debugging both his code and his existence."
           </p>
         </div>
       </motion.section>
 
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
+    <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project) => (
+          {visibleProjects.map((project) => (
             <div key={project.name} className="space-y-2">
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
-              </div>
+      
+                <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                
+                  <Image
+                  src={project.image}
+                  alt={project.name}
+                  width={200}
+                  height={100}
+                  className="rounded-xl object-cover w-full h-[120px]"
+                  />
+                
+                </div>
               <div className="px-1">
                 <a
                   className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
+                  href={project.gitlink}
                   target="_blank"
                 >
                   {project.name}
@@ -166,8 +182,77 @@ export default function Personal() {
                 <p className="text-base text-zinc-600 dark:text-zinc-400">
                   {project.description}
                 </p>
+                <div className="mt-2 flex space-x-3">
+                  <a
+                    href={project.gitlink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 rounded-full bg-zinc-900 px-4 py-1 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+                  >
+                    <FaGithub className="text-base" />
+                    <span>GitHub</span>
+                  </a>
+                  {project.view && project.view !== '' && (
+                    <a
+                      href={project.view}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 rounded-full bg-zinc-900 px-4 py-1 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+                    >
+                      <FiExternalLink className="text-base" />
+                      <span>View</span>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
+          ))}
+        </div>
+
+        {!showAll && PROJECTS.length > 4 && (
+          <div className="mt-9 flex justify-center">
+<button
+  onClick={() => setShowAll(true)}
+  className="inline-flex items-center space-x-1 text-sm font-medium text-zinc-900 underline underline-offset-4 hover:no-underline dark:text-zinc-100"
+>
+  <span>Show More Projects</span>
+  <FiChevronDown className="text-base" />
+</button>
+
+          </div>
+        )}
+      </motion.section>
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Education</h3>
+        <div className="flex flex-col space-y-2">
+          {EDUCATION_EXPERIENCE.map((school) => (
+        <div
+          className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+          key={school.id}
+        >
+          <Spotlight
+            className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+            size={64}
+          />
+          <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+            <div className="relative flex w-full flex-row justify-between">
+          <div>
+            <h4 className="font-normal dark:text-zinc-100">
+              {school.institution}
+            </h4>
+            <p className="text-zinc-500 dark:text-zinc-400">
+              {school.degree}
+            </p>
+          </div>
+          <p className="text-zinc-600 dark:text-zinc-400">
+            {school.start} - {school.end}
+          </p>
+            </div>
+          </div>
+        </div>
           ))}
         </div>
       </motion.section>
@@ -176,15 +261,52 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
+        <h3 className="mb-5 text-lg font-medium">Volunteering Experience</h3>
         <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.map((job) => (
+          {VOLUNTEER_EXPERIENCE.map((volunteer) => (
+        <div
+          className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+          key={volunteer.id}
+        >
+          <Spotlight
+            className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+            size={64}
+          />
+          <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+            <div className="relative flex w-full flex-row justify-between">
+          <div>
+            <h4 className="font-normal dark:text-zinc-100">
+              {volunteer.position}
+            </h4>
+            <p className="text-zinc-500 dark:text-zinc-400">
+              {volunteer.institution}
+            </p>
+          </div>
+          <p className="text-zinc-600 dark:text-zinc-400">
+            {volunteer.start} - {volunteer.end}
+          </p>
+            </div>
+          </div>
+        </div>
+          ))}
+        </div>
+      </motion.section>
+
+
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Certifications</h3>
+        <div className="flex flex-col space-y-2">
+          {CERTIFICATIONS.map((cert) => (
             <a
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-              href={job.link}
+              href={cert.link}
               target="_blank"
               rel="noopener noreferrer"
-              key={job.id}
+              key={cert.id}
             >
               <Spotlight
                 className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
@@ -194,14 +316,14 @@ export default function Personal() {
                 <div className="relative flex w-full flex-row justify-between">
                   <div>
                     <h4 className="font-normal dark:text-zinc-100">
-                      {job.title}
+                      {cert.title}
                     </h4>
                     <p className="text-zinc-500 dark:text-zinc-400">
-                      {job.company}
+                      {cert.issuer}
                     </p>
                   </div>
                   <p className="text-zinc-600 dark:text-zinc-400">
-                    {job.start} - {job.end}
+                    {cert.date}
                   </p>
                 </div>
               </div>
@@ -209,7 +331,7 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
-
+{/* 
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -244,7 +366,7 @@ export default function Personal() {
             ))}
           </AnimatedBackground>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       <motion.section
         variants={VARIANTS_SECTION}
