@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
     view: 'https://www.linkedin.com/posts/rp07official_machinelearning-youtubeanalytics-predictivemodeling-activity-7363952897010630658-NaNg?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB0tSyEBxqmgfjOz26gkfmRnJ0CPRDFoZVY',
     gitlink: 'https://github.com/DonaldAadithiyan/YT-analytics',
     image:
-      '/projects/8.png',
+      '/projects/8.jpeg',
     id: 'project8',
   },
     {
