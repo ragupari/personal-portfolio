@@ -13,6 +13,13 @@ type VolunteerExperience = {
   end: string
   id: string
 }
+type Publication = {
+  title: string
+  authors: string
+  year: string
+  link: string
+  id: string
+}
 type Certification = {
   title: string
   issuer: string
@@ -52,7 +59,7 @@ export const PROJECTS: Project[] = [
       '/projects/8.jpeg',
     id: 'project8',
   },
-    {
+  {
     name: 'AgroBridge',
     description:
       'Connecting farmers directly to buyers for a fairer, fresher harvest.',
@@ -101,7 +108,7 @@ export const PROJECTS: Project[] = [
       '/projects/6.png',
     id: 'project4',
   },
-    {
+  {
     name: 'Nano Processor Design',
     description:
       'Design and simulate a 4-bit nanoprocessor capable of executing basic arithmetic and control instructions using VHDL.',
@@ -124,6 +131,15 @@ export const PROJECTS: Project[] = [
 
 ]
 
+export const PUBLICATIONS: Publication[] = [
+  {
+    title: 'Predicting YouTube Video Initial Engagement',
+    authors: 'Ragu Pari, Donald Aadithiyan',
+    year: '2025',
+    link: 'https://www.linkedin.com/posts/rp07official_machinelearning-youtubeanalytics-predictivemodeling-activity-7363952897010630658-NaNg?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB0tSyEBxqmgfjOz26gkfmRnJ0CPRDFoZVY',
+    id: 'pub1',
+  }]
+
 export const EDUCATION_EXPERIENCE: EducationExperience[] = [
   {
     institution: 'University of Moratuwa',
@@ -142,7 +158,7 @@ export const EDUCATION_EXPERIENCE: EducationExperience[] = [
 ]
 
 export const VOLUNTEER_EXPERIENCE: VolunteerExperience[] = [
-    {
+  {
     institution: 'Mora Exams',
     position: 'MORA EXAMS 2024 - President',
     start: 'Jun 2024',
