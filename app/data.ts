@@ -13,12 +13,19 @@ type VolunteerExperience = {
   end: string
   id: string
 }
+type Experience = {
+  job_title: string
+  company: string
+  start: string
+  end: string
+  id: string
+}
 type Publication = {
   title: string
-  authors: string
-  year: string
+  description: string
   organization: string
   id: string
+  link: string
 }
 type Certification = {
   title: string
@@ -134,10 +141,10 @@ export const PROJECTS: Project[] = [
 export const PUBLICATIONS: Publication[] = [
   {
     title: 'Predicting YouTube Video Initial Engagement',
-    authors: 'Ragu Pari, Donald Aadithiyan',
-    year: '2025',
-    organization:'By UCSC',
+    description: 'Presented at 3rd International Conference in Data Science (ICDS 2025)',
+    organization: 'organized by Department of Statistics, University of Colombo',
     id: 'pub1',
+    link: 'https://science.cmb.ac.lk/icds/icds-2025/proceedings/#flipbook-df_1135/33/'
   }]
 
 export const EDUCATION_EXPERIENCE: EducationExperience[] = [
@@ -156,6 +163,15 @@ export const EDUCATION_EXPERIENCE: EducationExperience[] = [
     id: 'edu2',
   },
 ]
+
+export const EXPERIENCE: Experience[] = [
+  {
+    job_title: 'Information Security Engineer Intern',
+    company: 'TechCERT, Sri Lanka',
+    start: '2025 Nov',
+    end: 'Present',
+    id: 'exp1',
+  }]
 
 export const VOLUNTEER_EXPERIENCE: VolunteerExperience[] = [
   {

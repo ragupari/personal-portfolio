@@ -27,6 +27,7 @@ import {
   VOLUNTEER_EXPERIENCE,
   CERTIFICATIONS,
   PUBLICATIONS,
+  EXPERIENCE,
 } from './data'
 
 const VARIANTS_CONTAINER = {
@@ -153,6 +154,41 @@ export default function Personal() {
           </p>
         </div>
       </motion.section>
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Experience</h3>
+        <div className="flex flex-col space-y-2">
+          {EXPERIENCE.map((exp) => (
+        <div
+          className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+          key={exp.id}
+        >
+          <Spotlight
+            className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+            size={64}
+          />
+          <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+            <div className="relative flex w-full flex-row justify-between">
+          <div>
+            <h4 className="font-normal dark:text-zinc-100">
+              {exp.job_title}
+            </h4>
+            <p className="text-zinc-500 dark:text-zinc-400">
+              {exp.company}
+            </p>
+          </div>
+          <p className="text-zinc-600 dark:text-zinc-400">
+            {exp.start} - {exp.end}
+          </p>
+            </div>
+          </div>
+        </div>
+          ))}
+        </div>
+      </motion.section>
+
 
     <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
@@ -227,6 +263,53 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
+        <h3 className="mb-5 text-lg font-medium">Publications</h3>
+        <div className="flex flex-col space-y-2">
+          {PUBLICATIONS.map((pub) => (
+        <div
+          className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+          key={pub.id}
+        >
+          <Spotlight
+            className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+            size={64}
+          />
+          <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+            <div className="relative flex w-full flex-row justify-between">
+          <div>
+            <h4 className="font-normal dark:text-zinc-100">
+              {pub.title}
+            </h4>
+            <p className="text-zinc-500 dark:text-zinc-400">
+              {pub.description}
+            </p>
+            <p className="text-zinc-500 dark:text-zinc-400">
+              {pub.organization}
+            </p>
+            <div className="mt-2 flex space-x-3">
+                  {pub.link && pub.link !== '' && (
+                    <a
+                      href={pub.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 rounded-full bg-zinc-900 px-4 py-1 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+                    >
+                      <FiExternalLink className="text-base" />
+                      <span>View</span>
+                    </a>
+                  )}
+                </div>
+          </div>
+            </div>
+          </div>
+        </div>
+          ))}
+        </div>
+      </motion.section>
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
         <h3 className="mb-5 text-lg font-medium">Education</h3>
         <div className="flex flex-col space-y-2">
           {EDUCATION_EXPERIENCE.map((school) => (
@@ -257,44 +340,7 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Publications</h3>
-        <div className="flex flex-col space-y-2">
-          {PUBLICATIONS.map((pub) => (
-        <div
-          className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-          key={pub.id}
-        >
-          <Spotlight
-            className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-            size={64}
-          />
-          <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-            <div className="relative flex w-full flex-row justify-between">
-          <div>
-            <h4 className="font-normal dark:text-zinc-100">
-              {pub.title}
-            </h4>
-            <p className="text-zinc-500 dark:text-zinc-400">
-              {pub.organization}
-            </p>
-            <p className="text-zinc-500 dark:text-zinc-400">
-              {pub.authors}
-            </p>
-          </div>
-          <p className="text-zinc-600 dark:text-zinc-400">
-            {pub.year}
-          </p>
-            </div>
-          </div>
-        </div>
-          ))}
-        </div>
-      </motion.section>
-
+      
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
