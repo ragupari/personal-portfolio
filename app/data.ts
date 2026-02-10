@@ -17,7 +17,7 @@ type Publication = {
   title: string
   authors: string
   year: string
-  link: string
+  organization: string
   id: string
 }
 type Certification = {
@@ -136,7 +136,7 @@ export const PUBLICATIONS: Publication[] = [
     title: 'Predicting YouTube Video Initial Engagement',
     authors: 'Ragu Pari, Donald Aadithiyan',
     year: '2025',
-    link: 'https://www.linkedin.com/posts/rp07official_machinelearning-youtubeanalytics-predictivemodeling-activity-7363952897010630658-NaNg?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB0tSyEBxqmgfjOz26gkfmRnJ0CPRDFoZVY',
+    organization:'By UCSC',
     id: 'pub1',
   }]
 
