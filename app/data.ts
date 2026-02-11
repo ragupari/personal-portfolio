@@ -61,6 +61,7 @@ export const PROJECTS: Project[] = [
     description:
       'This project illustrates a secure decentralized data storage through IPFS and immutability through Hyberledger blockchain.',
     gitlink: 'https://github.com/ragupari/pulse-OS-blockchain-based-HMS',
+      view: '',
     image:
       '/projects/9.png',
     id: 'project9',
