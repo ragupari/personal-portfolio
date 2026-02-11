@@ -56,6 +56,16 @@ type SocialLink = {
 }
 
 export const PROJECTS: Project[] = [
+    {
+    name: 'Decentralized Secure Data Infrastructure (Hyperledger Blockchain, IPFS)',
+    description:
+      'Our project applies Machine Learning techniques to predict initial engagement metrics for YouTube videos before they go live.',
+    view: 'https://www.linkedin.com/posts/rp07official_machinelearning-youtubeanalytics-predictivemodeling-activity-7363952897010630658-NaNg?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB0tSyEBxqmgfjOz26gkfmRnJ0CPRDFoZVY',
+    gitlink: 'https://github.com/DonaldAadithiyan/YT-analytics',
+    image:
+      '/projects/8.png',
+    id: 'project8',
+  },
   {
     name: 'Predicting YouTube Video Initial Engagement',
     description:
